@@ -109,6 +109,8 @@ PostDown = ${WG_POST_DOWN}
 
 # Client: ${client.name} (${clientId})
 [Peer]
+# friendly_name = ${client.name}
+# (${clientId})
 PublicKey = ${client.publicKey}
 ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
 }AllowedIPs = ${client.address}/32`;
