@@ -1,10 +1,11 @@
 # WireGuard Easy
 
-[![Build & Publish Docker Image to Docker Hub](https://github.com/wg-easy/wg-easy/actions/workflows/deploy.yml/badge.svg?branch=production)](https://github.com/wg-easy/wg-easy/actions/workflows/deploy.yml)
-[![Lint](https://github.com/wg-easy/wg-easy/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/wg-easy/wg-easy/actions/workflows/lint.yml)
-![Docker](https://img.shields.io/docker/pulls/weejewel/wg-easy.svg)
+[![Build & Publish Docker Image to Docker Hub](https://github.com/mfominov/wg-easy/actions/workflows/deploy.yml/badge.svg?branch=production)](https://github.com/mfominov/wg-easy/actions/workflows/deploy.yml)
+[![Lint](https://github.com/mfominov/wg-easy/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/mfominov/wg-easy/actions/workflows/lint.yml)
+[![Docker](https://img.shields.io/docker/v/mfominov/wg-easy/latest)](https://hub.docker.com/r/mfominov/wg-easy)
+[![Docker](https://img.shields.io/docker/pulls/mfominov/wg-easy.svg)](https://hub.docker.com/r/mfominov/wg-easy)
 [![Sponsor](https://img.shields.io/github/sponsors/weejewel)](https://github.com/sponsors/WeeJeWel)
-![GitHub Stars](https://img.shields.io/github/stars/wg-easy/wg-easy)
+![GitHub Stars](https://img.shields.io/github/stars/mfominov/wg-easy)
 
 You have found the easiest way to install & manage WireGuard on any Linux host!
 
@@ -80,8 +81,8 @@ To automatically install & run wg-easy, simply run:
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --sysctl="net.ipv4.ip_forward=1" \
   --restart unless-stopped \
-  ghcr.io/wg-easy/wg-easy
-```
+  mfominov/wg-easy
+</pre>
 
 > 💡 Replace `YOUR_SERVER_IP` with your WAN IP, or a Dynamic DNS hostname.
 >
@@ -142,7 +143,7 @@ To update to the latest version, simply run:
 ```bash
 docker stop wg-easy
 docker rm wg-easy
-docker pull ghcr.io/wg-easy/wg-easy
+docker pull mfominov/wg-easy
 ```
 
 And then run the `docker run -d \ ...` command above again.
@@ -157,7 +158,5 @@ was pulled.
 
 ## Common Use Cases
 
-* [Using WireGuard-Easy with Pi-Hole](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-Pi-Hole)
-* [Using WireGuard-Easy with nginx/SSL](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-nginx-SSL)
-
-For less common or specific edge-case scenarios, please refer to the detailed information provided in the [Wiki](https://github.com/wg-easy/wg-easy/wiki).
+* [Using WireGuard-Easy with Pi-Hole](https://github.com/mfominov/wg-easy/wiki/Using-WireGuard-Easy-with-Pi-Hole)
+* [Using WireGuard-Easy with nginx/SSL](https://github.com/mfominov/wg-easy/wiki/Using-WireGuard-Easy-with-nginx-SSL)
