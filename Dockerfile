@@ -13,6 +13,7 @@ RUN npm ci --omit=dev &&\
 # This saves a lot of disk space.
 FROM docker.io/library/node:18-alpine
 COPY --from=build_node_modules /app /app
+COPY --from=build_node_modules /opt/udp2raw_amd64 /opt
 
 # Move node_modules one directory up, so during development
 # we don't have to mount it in a volume.
@@ -42,7 +43,7 @@ RUN update-alternatives --install /sbin/iptables iptables /sbin/iptables-legacy 
 
 # Expose Ports
 EXPOSE 51820/udp
-EXPOSE 51821/tcp
+EXPOSE 51821/tcp 80/tcp
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
