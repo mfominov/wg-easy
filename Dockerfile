@@ -42,8 +42,7 @@ RUN apk add --no-cache \
 RUN update-alternatives --install /sbin/iptables iptables /sbin/iptables-legacy 10 --slave /sbin/iptables-restore iptables-restore /sbin/iptables-legacy-restore --slave /sbin/iptables-save iptables-save /sbin/iptables-legacy-save
 
 # Expose Ports
-EXPOSE 51820/udp
-EXPOSE 51821/tcp 80/tcp
+EXPOSE 51820/udp 51820/tcp 51821/tcp
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
