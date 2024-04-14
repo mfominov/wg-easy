@@ -6,7 +6,7 @@ FROM docker.io/library/node:18-alpine AS build_node_modules
 # Copy Web UI
 COPY src/ /app/
 WORKDIR /app
-RUN npm ci --omit=dev &&
+RUN npm ci --omit=dev &&\
     mv node_modules /node_modules
 
 # Copy build result to a new image.
@@ -23,9 +23,9 @@ COPY --from=build_node_modules /app /app
 # than what runs inside of docker.
 COPY --from=build_node_modules /node_modules /node_modules
 
-RUN
-# Enable this to run `npm run serve`
-npm i -g nodemon &&
+RUN \
+    # Enable this to run `npm run serve`
+    npm i -g nodemon &&\
     # Delete unnecessary files
     npm cache clean --force && rm -rf ~/.npm
 
@@ -41,7 +41,8 @@ RUN apk add --no-cache \
 RUN update-alternatives --install /sbin/iptables iptables /sbin/iptables-legacy 10 --slave /sbin/iptables-restore iptables-restore /sbin/iptables-legacy-restore --slave /sbin/iptables-save iptables-save /sbin/iptables-legacy-save
 
 # Expose Ports
-EXPOSE 51820/udp 51820/tcp 51821/tcp
+EXPOSE 51820/udp
+EXPOSE 51821/tcp
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
